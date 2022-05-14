@@ -1,0 +1,11 @@
+.InputName{
+    color : blue;
+    padding: 7px;
+    margin: 0 0 20px 0;
+}
+
+::placeholder {
+    color: black;
+}
+
+ 
