@@ -1,14 +1,20 @@
 import React , {useState, useRef} from 'react';
 import './App.css';
- 
-import Buttons from './UI/Buttons/Buttons';
-import InputName from './UI/InputName/InputName';
-import Input from './UI/Inputs/Input';
+
+//Not using currently
+
+// import Buttons from './UI/Buttons/Buttons';
+// import InputName from './UI/InputName/InputName';
+// import Input from './UI/Inputs/Input';
+// import InputNewName from './Props/Form/InputNewName';
+// import InputNewJob from './Props/Form/InputNewJob';
+// import InputNewCountry from './Props/Form/InputNewCountry';
+
 import Posts from './Props/Posts';
-import InputNewName from './Props/Form/InputNewName';
-import InputNewJob from './Props/Form/InputNewJob';
-import InputNewCountry from './Props/Form/InputNewCountry';
 import Form from './Props/Form2.0/Form';
+import InputNewName from './Props/Form/InputNewName';
+import InputNewCountry from './Props/Form/InputNewCountry';
+import InputNewJob from './Props/Form/InputNewJob';
 // import PropsShow from './Props/PropsShow';
  
  
@@ -55,11 +61,21 @@ function App() {
       
       {/* <Plus_Minus/> */}
       {/* <Show_Text/> */}
-      <Buttons></Buttons>
+      {/* <Buttons></Buttons>
       <InputName></InputName>
-      <Input></Input>
+      <Input></Input> */}
+
+
       <h2 style={{color : 'white' , fontSize:'35px' , marginBottom: '35px'}}>Form for creating new post</h2>
+      
       <Form create={creatForm} funcform = {removeForm}/>
+      {posts.length !== 0 
+      ? <Posts posts={posts} funcform={removeForm}/> 
+      : <h2 style={{color : 'white' , fontSize:'35px' , marginBottom: '35px'}}>No posts</h2>
+        
+       
+      }
+      
       
      
     
@@ -78,7 +94,7 @@ function App() {
 
  
 
-      <Posts posts={posts} funcform={removeForm}/> 
+      
 
     
       
