@@ -15,6 +15,7 @@ import Form from './Props/Form2.0/Form';
 import InputNewName from './Props/Form/InputNewName';
 import InputNewCountry from './Props/Form/InputNewCountry';
 import InputNewJob from './Props/Form/InputNewJob';
+import SelectSort from './UI/Select/SelectSort';
 // import PropsShow from './Props/PropsShow';
  
  
@@ -50,9 +51,11 @@ function App() {
          
        }
 
-      
-       
-
+       const [selectedSort, setSelectedSort] = useState('');
+       const sortPosts=(sort)=>{
+        setSelectedSort(sort);
+        setPosts([...posts].sort((a,b )=>a[sort].localeCompare(b[sort])));
+      }
       
        
 
@@ -68,50 +71,30 @@ function App() {
 
       <h2 style={{color : 'white' , fontSize:'35px' , marginBottom: '35px'}}>Form for creating new post</h2>
       
+
+
+
       <Form create={creatForm} funcform = {removeForm}/>
+      <SelectSort
+      defaultValue = 'Choose by'
+      value=  {selectedSort}
+      onChange={sortPosts}
+    
+      options = {[
+        {value : 'Name' , name : 'Choose by name'},
+        {value : 'Job' , name : 'Choose by job'},
+        {value : 'Country' , name : 'Choose by country'},
+
+
+      ]}
+      
+      
+      />
       {posts.length !== 0 
       ? <Posts posts={posts} funcform={removeForm}/> 
       : <h2 style={{color : 'white' , fontSize:'35px' , marginBottom: '35px'}}>No posts</h2>
-        
-       
       }
-      
-      
-     
-    
-     
-      
-      
-     
-
-
-
-    
-      
-   
-
-
-
- 
-
-      
-
-    
-      
-      
-
-
-
-     
-  
-
-      
       {/* <PropsShow posts=  {{id : 1 , name : 'Oleksandr' , job : 'Frond-end' , country : 'Ukraine'}}/> */}
- 
-      
-
-  
-
     </div>
   );
 }
