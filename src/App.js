@@ -85,6 +85,8 @@ function App() {
   }, [SearchByWords , sortedPosts])
 
 
+  
+  
   // const [selected, setSelected] = useState('');
   // let select = document.querySelector('select')
  
@@ -138,14 +140,7 @@ function App() {
 
       <Form create={creatForm} funcform={removeForm} />
 
-      <select id="select" style={{margin : '20px'}} 
-        ref={select}>
-        <option>Select seaching</option>
-        <option value="name"  >Name</option>
-        <option value="job"  >Job</option>
-        <option value="country"   >Country</option>
-      </select>
-     <button  onClick={Select}>Click here</button> <br/>
+      
 
 
       <input
@@ -171,12 +166,12 @@ function App() {
       />
 
       { 
-      sortedAndSearchByName.length
-        ? <Posts funcform={removeForm}  posts={sortedAndSearchByName} choosing={Select}/>
-        
+      sortedAndSearchByName.length 
+        ? <Posts funcform={removeForm}  posts={sortedAndSearchByName}/>  
         : <h2 style={{ color: 'white', fontSize: '35px', marginBottom: '35px' }}>No posts</h2>
       
       }
+      
       
 
 
